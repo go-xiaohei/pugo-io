@@ -1,0 +1,96 @@
+html,body{
+    font-family:  "Raleway","Helvetica Neue","Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", STXihei, STHeiti, Heiti, SimSun,Helvetica,Arial,sans-serif
+}
+
+#header .navbar-brand{
+    font-weight: bold
+}
+
+#main{
+    padding-top: 100px;
+}
+
+#guide .title{
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #DDD
+}
+
+#guide h3.title{
+    margin-top: 15px;
+}
+
+.md-content{
+    font-size: 18px;
+    line-height: 1.8em;
+}
+
+.md-content h1{
+    font-size: 30px;
+}
+
+.md-content h2{
+    font-size: 27px;
+}
+
+.md-content h3{
+    font-size: 24px;
+}
+
+.md-content h4{
+    font-size: 21px;
+}
+
+.md-content h5{
+    font-size: 20px;
+}
+
+.md-content h6{
+    font-size: 18px;
+}
+
+.md-content h1,
+.md-content h2,
+.md-content h3{
+    padding-top: 2.5rem
+}
+
+.md-content h4,
+.md-content h5,
+.md-content h6{
+    padding-top: 1.5rem
+}
+
+.md-content pre code{
+    font-size: .9em
+}
+
+.md-content pre{
+    margin:1.5rem .5rem;
+    padding:1rem;
+    border-radius: 0 !important;
+    border:none;
+}
+
+.md-content pre:before,.md-content pre:after{
+    display: none
+}
+
+.md-index-container{
+    position: fixed;
+}
+
+.md-index ul,
+.md-nav ul{
+    margin-left: 1rem;
+    font-size: 90%;
+}
+
+#footer .container{
+    margin-top: 3rem;
+    padding-top: 4rem;
+    border-top: 1px solid #DDD;
+    margin-bottom: 4rem;
+}

@@ -1,0 +1,37 @@
+{{template "meta.html" .}}
+
+<body>
+    {{template "header.html" .}}
+    <section id="main">
+        <div class="container">
+            <div id="guide">
+                <article class="guide">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="md-index-container">
+                                <h3 class="title">目录</h3>
+                                <ul class="nav nav-pills nav-stacked md-index">
+                                    {{range .Page.Index}}
+                                    <li><a {{HTMLAttr "href" (print "#" .Anchor)}}>{{.Title}}</a> {{if .Children}}
+                                        <ul class="nav nav-pills nav-stacked">
+                                            {{range .Children}}
+                                            <li><a {{HTMLAttr "href" (print "#" .Anchor)}}>{{.Title}}</a> {{end}}
+                                        </ul>{{end}}
+                                        </li>
+                                        {{end}}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <header class="header">
+                                <h1 class="title">{{.Page.Title}}</h1>
+                            </header>
+                            <section class="md-content">{{.Page.ContentHTML}}</section>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {{template "embed/comment.html" .}}
+        </div>
+    </section>
+    {{template "footer.html" .}}
