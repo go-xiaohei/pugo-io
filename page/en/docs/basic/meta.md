@@ -25,6 +25,15 @@ lang = ""
 
 具体的说明：
 
+参数 | 描述 | 默认值
+--- | --- | ---
+title | 站点的标题，必填 | 
+subtitle | 站点的副标题，可选 |
+keyword | 站点的关键字，可选 | 
+desc | 站点的描述，可选 | 
+root | 站点的根地址，必填 | http://localhost:9899
+lang | 站点的默认语言，可选；如果不设置，不开启国际化支持 | 空
+
 ## 导航
 
 全局导航信息定义在 `[[nav]]` 内容中，是一组数据，如：
@@ -46,6 +55,14 @@ hover = "docs"
 
 具体的说明：
 
+参数 | 描述 | 默认值
+--- | --- | ---
+link | 导航的链接，必填；建议设置确定的 html 文件，目录可以设置 index.html | 
+title | 导航的标题，必填 |
+i18n | 导航国际化的关键字，可选 | 
+hover | 导航选中状态关键字，可选 | 
+blank | 导航是否打开新的浏览器标签页 | false
+
 导航只支持一个层级，顺序按照定义的先后。
 
 ## 作者
@@ -62,6 +79,14 @@ bio = "the robot of pugo, who generates all default contents."
 ```
 
 具体的说明：
+
+参数 | 描述 | 默认值
+--- | --- | ---
+name | 作者的称呼，必填 | 
+email | 作者的联系邮箱，可选 |
+url | 作者的联系网址，可选 | 
+avatar | 作者的头像，可选；如果为空时 email 存在，使用同 email 的 Gravatar 头像 | 
+bio | 作者的个人说明，可选 | 
 
 作者可以多个。第一个作者为**默认作者**。文章和页面中通过 `author = "pugo"` 来对应某个作者。如果文章和页面不指定作者，将自动设置为**默认作者**。
 
@@ -92,22 +117,19 @@ tencent = ""
 编译配置可以设置编译过程中依赖的参数。**一般情况下不要修改**。
 
 ```toml
-# configuration settings
-# please do not modify settings
-# if need change values, read documentation carefully
 [config]
-# directory of posts
+# 文章的目录
 post_dir = "post"
-# directory of pages
+# 页面的目录
 page_dir = "page"
-# directory of media
+# 媒体文件的目录
 media_dir = "media"
-# directory of theme
+# 主题的目录
 theme_dir = "theme"
-# directory of language
+# 国际化语言的目录
 lang_dir = "lang"
-# directory of static site output files
+# 输出的目录
 output_dir = "dest"
-# post page size
+# 文章列表中单页文章的数量
 post_pagesize = 4
 ```

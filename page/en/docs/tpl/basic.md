@@ -63,3 +63,13 @@ sort = 1
 ```
 
 ## 静态资源
+
+主题需要的静态文件放在 `theme/static/` 目录中，主要在 `meta.html` 和 `footer.html` 中引用，如：
+
+```html
+<link rel="stylesheet" href="{{.Base}}/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="{{.Base}}/css/prism.css"/>
+<link rel="stylesheet" href="{{.Base}}/css/style.css"/>
+```
+
+引用时，文件 `theme/static/css/style.css` 在模板中直接 `css/style.css`。
