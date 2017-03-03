@@ -9,16 +9,19 @@ sort = 1
 
 您很容易为 `PuGo` 创建主题。您可以参考默认的 `theme/` 目录，创建自己的主题。主题的基本结构：
 
-    ▸ static/                   静态文件 CSS JS 等的目录            
-    ▸ meta.html                 HTML header 头部模板
-    ▸ header.html               页面顶部导航模板
-    ▸ footer.html               页面底部模板
+    ▸ static/                   静态文件 CSS JS 等的目录 
+
     ▸ post.html                 文章的模板
     ▸ posts.html                文章列表的模板
     ▸ archive.html              文章归档的模板
     ▸ page.html                 独立页面的模板
+
+    ▸ embed/meta.html           HTML header 头部模板
+    ▸ embed/header.html         页面顶部导航模板
+    ▸ embed/footer.html         页面底部模板
     ▸ embed/comment.html        第三方评论的模板，可选嵌入
     ▸ embed/analytics.html      第三方统计的模板，可选嵌入
+    
     ▸ theme.toml                主题的描述文件
 
 以 `post.html` 为例，完整的页面的模板：

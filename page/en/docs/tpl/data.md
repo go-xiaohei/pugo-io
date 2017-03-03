@@ -137,4 +137,71 @@ Title | string | 页面页码 - 站点标题
 
 #### archive.html
 
+参数 | 类型 | 描述 | 默认值
+--- | --- | --- | ---
+Archives | []*archive.Archive | 归档列表 | 
+Hover | string | 归档页面的链接选中状态关键字 | archive 
+Title | string | Archive - 站点标题
+
+主题 `archive.html` 中的使用：
+
+```html
+<div id="archive-list">
+    {{range .Archives}}
+    <div class="archive">
+        <h3>{{.Period}}</h3>
+        <hr/>
+        {{range .Posts}}
+        <h4>
+            <span class="date">{{printf "%02d" .CreateTime.Month}}.{{printf "%02d" .CreateTime.Day}}</span>
+            <a href="{{FullURL .URL}}">{{.Title}}</a>
+        </h4>
+        {{end}}
+    </div>
+    {{end}}
+</div>
+```
+
 #### page.html
+
+参数 | 类型 | 描述 | 默认值
+--- | --- | --- | ---
+Page | *page.Page | 页面数据 | 
+Title | string | 页面的标题 | 页面标题 - 站点标题
+Hover | string | 当前页面选中状态关键字 | .Page.Hover
+
+`page.html` 中使用页面数据渲染的代码，和文章模板页面很类似：
+
+```html
+<header class="header">
+        <div class="meta">
+            <span class="date">
+                <span class="month">{{printf "%02d" .Page.CreateTime.Month}}</span>
+                <span class="day">{{printf "%02d" .Page.CreateTime.Day}}</span>
+            </span>
+        </div>
+        <h3 class="title">
+            <a href="{{.Page.URL}}">{{.Page.Title}}</a>
+        </h3>
+    </header>
+    {{if .Page.Author}}<aside class="aside clearfix">
+        <a class="stat label label-default pull-right"{{if .Page.Author.URL}} href="{{.Page.Author.URL}}" target="_blank"{{end}}>{{.Page.Author.Name}}</a>
+    </aside>{{end}}
+    <section class="brief">{{.Page.ContentHTML}}</section>
+</div>
+```
+
+`*page.Page` 的详细说明：
+
+参数 | 类型 | 描述 
+--- | --- | --- 
+Title | string | 页面的标题
+Desc | string | 页面的介绍
+Author | *author.Author | 页面的作者，可能 nil
+CreateTime | time.Time | 页面的创建时间
+UpdateTime | time.Time | 页面的修改时间
+Content | []byte | 页面的内容数据
+ContentHTML | template.HTML | 页面内容 HTML 类型
+URL | string | 页面的访问链接，需要和 Base 拼接
+Index | *index.Index | 页面的目录，可能 nil
+JSON | *page.JSON | 页面引入的 JSON 数据，可能 nil

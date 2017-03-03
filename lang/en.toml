@@ -1,8 +1,9 @@
 # navigation
 [nav]
-home = "Home"
-archive = "Archive"
-about = "About"
+guide = "Guide"
+docs = "Docs"
+api = "API"
+news = "News"
 
 # about post
 [post]

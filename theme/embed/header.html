@@ -13,19 +13,19 @@
                 <li class="{{if eq .Hover $.Hover}}active{{end}}">
                     {{if eq .Hover "news"}}
                     <a href="{{FullURL .Link}}" {{if .IsBlank}} target="_blank" {{end}}>{{if .Icon}}
-                            <i class="{{.Icon}}"></i>{{end}}{{.Title}}
+                            <i class="{{.Icon}}"></i>{{end}}{{.TrTitle $.I18n}}
                         </a> {{else}}
-                    <a href="{{FullTrURL $.I18n .Link}}" {{if .IsBlank}} target="_blank" {{end}}>{{if .Icon}}
-                            <i class="{{.Icon}}"></i>{{end}}{{.Title}}
+                    <a href="{{.TrLink $.I18n | FullURL}}" {{if .IsBlank}} target="_blank" {{end}}>{{if .Icon}}
+                            <i class="{{.Icon}}"></i>{{end}}{{.TrTitle $.I18n}}
                         </a> {{end}}
                 </li>{{end}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="lang">English <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">简体中文</a></li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="lang">{{.I18nItem.Name}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" data-slug="{{.Slug}}">{{range .I18nList}}
+                        <li><a href="#">{{.Name}}</a></li>
+                        {{end}}
                     </ul>
                 </li>
             </ul>
