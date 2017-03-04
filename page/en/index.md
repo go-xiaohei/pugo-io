@@ -1,10 +1,10 @@
 ```toml
-title = "快速入门"
-desc = "PuGo 的快速入门"
+title = "PuGo - Just For Writing"
+desc = "PuGo 的首页"
 author = "pugo"
-hover = "guide"
-template = "guide.html"
-lang = "zh-cn"
+hover = "index"
+template = "index.html"
+lang = "en"
 ```
 
 本文将带您快速上手 `PuGo`。如果您在操作过程中遇到问题，请查看 [疑难问题](#) 中的解答，或者在 GitHub、Google Group 上提问。

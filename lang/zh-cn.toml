@@ -1,20 +1,21 @@
 # navigation
 [nav]
-home = "文章"
-archive = "归档"
-about = "关于"
+guide = "快速入门"
+docs = "文章"
+api = "API"
+news = "新闻"
 
 # about post
 [post]
-list = "All Posts"
-archive = "Archives"
-tag = "Tags"
-readmore = "Read More"
+list = "所有文章"
+archive = "归档"
+tag = "标签"
+readmore = "阅读更多"
 
 # about pagination
 [pager]
-prev = "Prev"
-next = "Next"
+prev = "以前的"
+next = "更新的"
 
 [page]
-index = "Index"
+index = "目录"

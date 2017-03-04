@@ -1,9 +1,9 @@
 ```toml
-title = "快速入门"
-desc = "PuGo 的快速入门"
+title = "PuGo - Just For Writing"
+desc = "PuGo 的首页"
 author = "pugo"
-hover = "guide"
-template = "guide.html"
+hover = "index"
+template = "index.html"
 lang = "zh-cn"
 ```
 
