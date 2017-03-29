@@ -1,14 +1,14 @@
 ```toml
-title = "撰写文章"
-desc = "如果撰写文章"
+title = "Write a post"
+desc = "how to write a post"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 sort = 1
-lang = "zh-cn"
+lang = "en"
 ```
 
-您可以在 `post` 目录添加新的 `.md` 文件，作为一篇新的文章。文章的内容采用 `markdown` 格式。`.md` 的文件名和文章本身无关，您需要在 `.md` 文件的开始填入 `Front-Meta` 内容，来说明这篇文章的基本信息。
+You can add a new `.md` file in the `post` directory as a new post. The contents of the post are in `markdown` format. `.md` file name is nothing to the post itself. You need to add the `Front-Meta` content at the beginning of `.md` file, to declare the basic information of this post.
 
 ## Front-Meta
 

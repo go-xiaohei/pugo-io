@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div class="md-index-container">
-                            <h3 class="title">目录</h3>
+                            <h3 class="title">{{.I18n.Tr "page.index"}}</h3>
                             <ul class="nav nav-pills nav-stacked md-index">
                                 {{range .Page.Index}}
                                 <li><a {{HTMLAttr "href" (print "#" .Anchor)}}>{{.Title}}</a> {{if .Children}}

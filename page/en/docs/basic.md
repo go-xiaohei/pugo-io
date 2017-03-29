@@ -1,12 +1,12 @@
 ```toml
-title = "基本操作"
-desc = "PuGo 文档"
+title = "Basic"
+desc = "basic operations of PuGo"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 node = true
 sort = 2
-lang = "zh-cn"
+lang = "en"
 ```
 
 空内容

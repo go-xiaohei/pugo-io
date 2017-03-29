@@ -1,18 +1,18 @@
 ```toml
-title = "添加页面"
-desc = "如果添加页面"
+title = "Add a page"
+desc = "how to add a page"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 sort = 2
-lang = "zh-cn"
+lang = "en"
 ```
 
-您可以在 `page` 目录添加新的 `.md` 文件，作为一篇新的页面。页面和文章很相似，使用 `markdown` 格式，需要 `Front-Meta` 定义基本信息。
+You can add a new `.md` file in the `page` directory as a new page. Page and post are very similar and same in `markdown` format. You need add `Front-Meta` to define basic information.
 
 ## Front-Meta
 
-`Front-Meta` 和文章的类似，字段略有不同。例如：
+`Front-Meta` is similar to post but some fields are slightly different.
 
     ```toml
     title = "About PuGo"
@@ -29,53 +29,53 @@ lang = "zh-cn"
     json = "about.json"
     ```
 
-这些参数的说明：
+Description:
 
-参数 | 描述 | 默认值
+parameter | description | default value
 --- | --- | ---
-title | 页面的标题，必填 | 
-slug | 页面的唯一链接，可选 |
-date | 页面的创建时间，可选；如果不设置，读取文件的最新修改时间 | 
-update_date | 页面的更新时间，可选；如果不设置，同创建时间 | 
-author | 页面作者的名称，可选 | 
-draft | 是否是草稿 | false
-hover | 页面的选中状态关键字，可选 | 
-template | 页面的模板文件，可选 | page.html
-sort | 页面的排序数，可选 | 0
-node | 是否是节点 | false
-json | 页面引入的 JSON 数据文件，可选 | 
+title | title of page, required | 
+slug | unique slug of page, required |
+date | created time; if empty, use file modified time | 
+update_date | updated time; if empty, same to created time | 
+author | author's name, requred | 
+draft | draft status | false
+hover | selected status keyword for navigation, optional | 
+template | template file name, optional | page.html
+sort | order number, optional | 0
+node | node status | false
+json | related json file data, optional | 
 
-#### 生成 HTML
+#### Generating HTML
 
-页面生成 HTML 有两种规则。
+There are two ways to generate HTML file:
 
-- 页面的 `slug` 存在时，以 `[slug].html` 生成。
-- 页面的 `slug` 不存在时，以 `.md` 文件相对于 `page` 目录的地址，生成 HTML文件。
+- if `slug` is set，generate as `[slug].html`.
+- if `slug` is **not** set，use relate path between `.md` file and `page` directory to generate.
 
-如 `/page/docs/index.md` 生成的 HTML 文件是 `/docs/index.html`。 HTML 的文件名和 `.md` 相同。
+For example, `/page/docs/index.md` generates html to `/docs/index.html`. HTML file's name is same to `.md` file.
 
-#### 页面模板
+#### Templaate
 
-页面默认的模板文件是 `page.html`。您可以修改 `template = "docs.html"` 指定别的模板文件 `docs.html` 作为此页面的渲染模板。指定的模板必须在主题中存在。
+The default template for page is `page.html`。You can set `template = "docs.html"` to use `docs.html` as template file. The template file must be existed in theme directory.
 
-#### 排序数
+#### Order number
 
-排序数使用与生成全站节点时，为了同一层次的节点排序使用的。值越小权重越高，位置越前。
+Order number is used to set order of pages when generating node tree. More less, more important.
 
-#### 节点模式
+#### Node mode
 
-您如果设置为页面设置 `node = true`，页面就不会被认为需要渲染，只用读取 `Front-Meta`。
+When you set `node = true`，it will not be compiled to html, but read `Front-Meta` and generate node into tree.
 
-#### JSON 数据
+#### JSON data
 
-如果您需要给页面添加额外的数据，可以设置 `json = "about.json"` 加载 JSON 数据文件。JSON 文件保存在 `page` 目录中，地址相对于 `page` 目录（如 `/page/about.json`），而不是页面文件。只支持加载一个 JSON 文件。
+If you want to import extra data into page, set `json = "about.json"` to load extra json file. JSON file need save in `page` directory and use value of related path by `page` directory ( `/page/about.json`). Only support to load one json file.
 
-## 页面的文件命名
+## Naming
 
-因为页面文章的名称和生成 HTML 的地址相关，所以文件名称推荐使用 URL 中合法的符号（如 `#` 是不行的)。而且目录的层级就是地址的层级，所以您规划好页面的网络，就是文件目录的结构了。
+Because the name of the page is related to the generated HTML address, it is recommended to use legal symbols in the URL (for example, `#`is not available) as filename. And the level of the directory is the address level, so the pages' addresses structure is same of the file directory.
 
-## 页面的媒体文件
+## Media files
 
-页面中的媒体文件和文章一样，都存放在 `media` 目录中。
+Same to post, media files save in `media` directory.
 
 

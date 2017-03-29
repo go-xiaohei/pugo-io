@@ -1,11 +1,11 @@
 ```toml
-title = "全站配置"
-desc = "全站 meta 文件的配置信息"
+title = "Meta file"
+desc = "configuration in meta file"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 sort = 3
-lang = "zh-cn"
+lang = "en"
 ```
 
 `PuGo` 的站点配置信息保存在 `meta.toml` 中，为 `toml` 格式。编译站点内容之前，您需要修改一些配置信息，保证生成正确的页面。

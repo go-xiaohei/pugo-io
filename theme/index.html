@@ -1,31 +1,54 @@
-{{template "embed/meta.html" .}}
+{{template "embed/meta.html" .}} 
 {{template "embed/header.html" .}}
 <section id="main">
     <div class="container">
-        <div id="article-single">
-            <article class="article">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 panel panel-default">
-                        <header class="header">
-                            <div class="meta">
-                        <span class="date">
-                            <span class="month">{{printf "%02d" .Page.CreateTime.Month}}</span>
-                            <span class="day">{{printf "%02d" .Page.CreateTime.Day}}</span>
-                        </span>
-                            </div>
-                            <h3 class="title">
-                                <a href="{{.Page.URL}}">{{.Page.Title}}</a>
-                            </h3>
-                        </header>
-                        {{if .Page.Author}}<aside class="aside clearfix">
-                            <a class="stat label label-default pull-right"{{if .Page.Author.URL}} href="{{.Page.Author.URL}}" target="_blank"{{end}}>{{.Page.Author.Name}}</a>
-                        </aside>{{end}}
-                        <section class="brief">{{.Page.ContentHTML}}</section>
-                    </div>
-                </div>
-            </article>
+        <div id="slogan">
+            <h1>
+                <strong>PuGo 1.0</strong>
+                <sup>2017-04-01</sup>
+            </h1>
+            <p>快速、高效的静态站点工具</p>
+            <div id="download">
+                <a href=""><button class="btn btn-primary"><i class="icon-download"></i>下载</button></a>
+                <a href="">
+                    <button class="btn btn-info">快速入门</button>
+                </a>
+            </div>
         </div>
-        {{template "embed/comment.html" .}}
+        <div id="feature">
+            <div class="row">
+                <div class="col-md-4 item">
+                    <i class="icon-docs"></i>
+                    <h4>使用简单</h4>
+                    <p>管理文件夹就是管理站点内容</p>
+                </div>
+                <div class="col-md-4 item">
+                    <i class="icon-paper-plane"></i>
+                    <h4>极速编译</h4>
+                    <p>一秒之内处理上千的静态页面</p>
+                </div>
+                <div class="col-md-4 item">
+                    <i class="icon-cubes"></i>
+                    <h4>无需依赖</h4>
+                    <p>一个文件提供所有功能，不需要安装更多</p>
+                </div>
+                <div class="col-md-4 item">
+                    <i class="icon-book-open"></i>
+                    <h4>支持 Markdown</h4>
+                    <p>使用 Markdown 文件作为内容，简单易学</p>
+                </div>
+                <div class="col-md-4 item">
+                    <i class="icon-leaf"></i>
+                    <h4>自定义主题</h4>
+                    <p>根据自己的需要定制更美观的模板和主题</p>
+                </div>
+                <div class="col-md-4 item">
+                    <i class="icon-github-circled-alt2"></i>
+                    <h4>开源</h4>
+                    <p>源码托管在 Github<br/>您可以根据需要自行修改发布。</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 {{template "embed/footer.html" .}}

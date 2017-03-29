@@ -1,11 +1,11 @@
 ```toml
-title = "静态文件"
-desc = "媒体文件和静态文件"
+title = "Media files"
+desc = "media files ans static files"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 sort = 4
-lang = "zh-cn"
+lang = "en"
 ```
 
 ## 媒体文件

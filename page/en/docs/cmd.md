@@ -1,12 +1,12 @@
 ```toml
-title = "使用命令"
-desc = "PuGo 命令的文档"
+title = "Command"
+desc = "usage of commands of PuGo"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 node = true
 sort = 3
-lang = "zh-cn"
+lang = "en"
 ```
 
 空内容

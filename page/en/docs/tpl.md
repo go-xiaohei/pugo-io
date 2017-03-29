@@ -1,12 +1,12 @@
 ```toml
-title = "主题开发"
-desc = "PuGo 的主题开发"
+title = "Template"
+desc = "template customize of PuGo"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 node = true
 sort = 4
-lang = "zh-cn"
+lang = "en"
 ```
 
 空内容
