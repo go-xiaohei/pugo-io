@@ -37,7 +37,7 @@ title | title of page, required |
 slug | unique slug of page, required |
 date | created time; if empty, use file modified time | 
 update_date | updated time; if empty, same to created time | 
-author | author's name, requred | 
+author | author's name, optional | 
 draft | draft status | false
 hover | selected status keyword for navigation, optional | 
 template | template file name, optional | page.html

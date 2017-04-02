@@ -8,30 +8,30 @@ sort = 4
 lang = "en"
 ```
 
-## 媒体文件
+## Media Files
 
-媒体文件存放在 `media/` 目录。编译内容时，`PuGo` 会拷贝 `media/` 目录的内容到站点。您在文章或页面的 `markdown` 内容中引用：
+The media files are saved in `media/` direcotry. When compiling, `PuGo` copies `media/` to destination directory. You can add them into `markdown` content:
 
 ```markdown
 ![image](/media/image.png)
 ```
 
-#### 相对地址
+#### Relative path
 
-在全局配置 `meta.toml` 中，可以设置站点的根地址。如果您设置的根地址有子目录，会影响资源目录的引用地址。如 `meta.toml` 中：
+You can set global url path for the site in `meta.toml` (root = "http://localhost:9899"). But if set a url with sub-directory:
 
 ```toml
 root = "http://pugo.io/blog"
 ```
 
-在文章或页面中引用的时候，您需要填写正确的相对地址，即：
+You need change your reference in markdown:
 
 ```markdown
 ![image](/blog/media/image.jpg)
 ```
 
-## 静态资源
+## Statis assets
 
-另一部分的静态资源是主题依赖的静态资源，在 `theme/static/` 目录中。编译内容时，`theme/static/` 会展开子目录到输出的根目录。因此有些如 `robots.txt` 等需要在根目录访问的内容，您可以放在这个目录。
+Some statis assets are used by theme in `theme/static/` directory. `PuGo` copies `theme/static/` and extracts to top level in destination directory. Some files can store in this directory if it need be visisted in root url, such as `robots.txt`.
 
-如 `theme/static/robots.txt` 输出到 `dest/robots.txt`。
+For example: `theme/static/robots.txt` is copied to `dest/robots.txt`。

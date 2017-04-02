@@ -8,11 +8,11 @@ sort = 3
 lang = "en"
 ```
 
-`PuGo` 的站点配置信息保存在 `meta.toml` 中，为 `toml` 格式。编译站点内容之前，您需要修改一些配置信息，保证生成正确的页面。
+`PuGo` site configuration is stored in `meta.toml`' in `toml` format. Before compiling the site content, you need to modify to ensure that the correct pages are generated.
 
-## 基本信息
+## Basic Information
 
-`PuGo` 的站点基本信息定义在 `[meta]` 内容下，如：
+`PuGo` basic information is defined in the `[meta]` section :
 
 ```toml
 [meta]
@@ -24,20 +24,20 @@ root = "http://pugo.io/"
 lang = ""
 ```
 
-具体的说明：
+Description:
 
-参数 | 描述 | 默认值
+parameter | descripiton | default value
 --- | --- | ---
-title | 站点的标题，必填 | 
-subtitle | 站点的副标题，可选 |
-keyword | 站点的关键字，可选 | 
-desc | 站点的描述，可选 | 
-root | 站点的根地址，必填 | http://localhost:9899
-lang | 站点的默认语言，可选；如果不设置，不开启国际化支持 | 空
+title | the title of the site, required | 
+subtitle | the subtitle of the site, optional |
+keyword | the keyword of the site, optional | 
+desc | the description, optional | 
+root | the root url for the site, required | http://localhost:9899
+lang | global language name. If empty, do not run internationlization | empty
 
-## 导航
+## Navigation
 
-全局导航信息定义在 `[[nav]]` 内容中，是一组数据，如：
+Global navigation is stored in `[[nav]]` with an array, such as:
 
 ```toml
 [[nav]]
@@ -54,21 +54,21 @@ i18n = "docs"
 hover = "docs"
 ```
 
-具体的说明：
+Description:
 
-参数 | 描述 | 默认值
+parameter | descripiton | default value
 --- | --- | ---
-link | 导航的链接，必填；建议设置确定的 html 文件，目录可以设置 index.html | 
-title | 导航的标题，必填 |
-i18n | 导航国际化的关键字，可选 | 
-hover | 导航选中状态关键字，可选 | 
-blank | 导航是否打开新的浏览器标签页 | false
+link | link of navgiation item. Use specific HTML file url, even index.html | 
+title | title of navigation item, required |
+i18n | keyword for internationlisation, optional | 
+hover | keyword for hover status, optional | 
+blank | open page with new browser tab | false
 
-导航只支持一个层级，顺序按照定义的先后。
+There is only one level for navigations. They are iterated as adding order.
 
-## 作者
+## Author
 
-作者信息定义在 `[[author]]` 内容中，是一组数据，如：
+Authors are an array data saved in `[[author]]` section:
 
 ```toml
 [[author]]
@@ -79,21 +79,21 @@ avatar = "/media/author.png"
 bio = "the robot of pugo, who generates all default contents."
 ```
 
-具体的说明：
+Description:
 
-参数 | 描述 | 默认值
+parameter | descripiton | default value
 --- | --- | ---
-name | 作者的称呼，必填 | 
-email | 作者的联系邮箱，可选 |
-url | 作者的联系网址，可选 | 
-avatar | 作者的头像，可选；如果为空时 email 存在，使用同 email 的 Gravatar 头像 | 
-bio | 作者的个人说明，可选 | 
+name | author's name, required | 
+email | author's email, optionsal |
+url | author's persion site url, optional | 
+avatar | author's avatar, optional. When empty, try to use Gravatr image by email| 
+bio | author's simple profile, optional | 
 
-作者可以多个。第一个作者为**默认作者**。文章和页面中通过 `author = "pugo"` 来对应某个作者。如果文章和页面不指定作者，将自动设置为**默认作者**。
+You can add several authors. The first one is **default author**. In post and page, set `author = "pugo"` to an author by same name. If no author in post and page, use **default author**.
 
-## 第三方系统
+## Third-party
 
-`PuGo` 提供了第三方评论和统计系统的支持，分别定义在 `[comment]` 和 `[analytics]` 内容下，如：
+`PuGo` provides support for third-party comments and analytics systems, defined under `[comment]` and `[analytics]` section, such as:
 
 ```toml
 [comment]
@@ -111,26 +111,26 @@ baidu = ""
 tencent = ""
 ```
 
-`PuGo` 在主题 `theme/embed/comment.html` 和 `theme/embed/analytics.html` 文件提供默认的评论和统计嵌入代码。如果您需要自定义，可以参考主题文件进行修改。
+In `theme/embed/comment.html` and `theme/embed/analytics.html` file `PuGo` provides default javascript code for third systems. You can customize your code refer to these files.
 
-## 编译配置
+## Compilation configuration
 
-编译配置可以设置编译过程中依赖的参数。**一般情况下不要修改**。
+The compilation configuration sets the parameters to change the compilation behavior. **Do not modify** in general.
 
 ```toml
 [config]
-# 文章的目录
+# directory of posts
 post_dir = "post"
-# 页面的目录
+# directory of pages
 page_dir = "page"
-# 媒体文件的目录
+# directory of media files
 media_dir = "media"
-# 主题的目录
+# directory of theme
 theme_dir = "theme"
-# 国际化语言的目录
+# directory of language files
 lang_dir = "lang"
-# 输出的目录
+# directory for compiled HTML files
 output_dir = "dest"
-# 文章列表中单页文章的数量
+# size of posts for a post list page
 post_pagesize = 4
 ```
