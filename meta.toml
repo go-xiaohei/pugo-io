@@ -36,14 +36,14 @@ hover = "docs"
 
 # navigator item
 [[nav]]
-link = "http://pugo.io"
+link = "https://godoc.org/github.com/go-xiaohei/pugo"
 title = "API"
 i18n = "api"
 hover = "api"
 blank = true
 
 [[nav]]
-link = "/posts/1.html"
+link = "/archive.html"
 title = "News"
 i18n = "news"
 hover = "news"

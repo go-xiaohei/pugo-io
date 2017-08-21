@@ -1,31 +1,31 @@
 ```toml
-title = "模板函数"
-desc = "PuGo 主题中的模板辅助函数"
+title = "Template functions"
+desc = "helper functions in PuGo templates"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 sort = 3
-lang = "zh-cn"
+lang = "en"
 ```
 
-`PuGo` 在主题中提供了几个辅助函数，简化操作：
+`PuGo` provides some helper function for templating:
 
 #### HTML
 
-`HTML([]byte/string)` 将文本或字节转化为 HTML 类型输出，防止被安全转义到纯文本：
+`HTML([]byte/string)` converts bytes to HTML type, avoid safe escaping：
 
 ```html
 <div class="content">{{HTML .Post.Content}}</div>
 ```
 
-    PS: {{.Post.ContentHTML}} 就是这个过程。模板可以直接使用。
+    PS: {{.Post.ContentHTML}} had beed converted.
 
 #### FullURL
 
-`FullURL(string)` 拼接 URL 和 {{.Base}}，生成完整的访问地址：
+`FullURL(string)` concats URL and {{.Base}} to full url:
 
 ```html
 <a href="{{FullURL .Post.URL}}">{{.Post.Title}}</a>
 ```
 
-所有数据输出的 URL 都需要用 FullURL 处理来保证正确性。
+You must use FullURL to build safe and correct url.

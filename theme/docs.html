@@ -5,13 +5,13 @@
         <div id="guide">
             <article class="guide">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 hidden-md">
                         <div class="md-index-container">
                             <ul class="nav nav-pills nav-stacked md-nav">
                                 {{with $w := .Tree.Child (print .I18n.Lang "/docs")}} {{if $w}} {{range $w.Children}}
                                 <li>
                                     {{if .Is "nil"}}
-                                    <a href="#">{{.Title}}</a> {{else}}
+                                    <a href="#" class="nav-tree-nil">{{.Title}}</a> {{else}}
                                     <a href="{{FullURL .URL}}">{{.Title}}</a> {{end}} {{if .Children}}
                                     <ul class="nav nav-pills nav-stacked">
                                         {{range .Children}}

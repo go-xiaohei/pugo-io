@@ -1,32 +1,32 @@
 ```toml
-title = "页面数据"
-desc = "PuGo 主题中的页面里的数据"
+title = "Data in Template"
+desc = "major data in template files"
 author = "pugo"
 hover = "docs"
 template = "docs.html"
 sort = 2
-lang = "zh-cn"
+lang = "en"
 ```
 
-主题单个页面上的数据分为全局数据和单页数据两部分。全局数据是所有页面都可以访问的。而单页数据根据当前主题页面的渲染用途提供数据。
+The data on a single template are divided into global and single-page data. Global data are accessible to all templates. The single-page data are based on the rendering purpose of the current theme page.
 
-## 全局数据
+## Global Data
 
-参数 | 类型 | 描述 | 默认值
+parameter | type | description | default value
 --- | --- | --- | ---
-Title | string | 站点的标题 | meta.toml 中 [meta] 的 title
-Keyword | string | 站点的关键字 | meta.toml 中 [meta] 的 keyword
-Desc | string | 站点的描述 | meta.toml 中 [meta] 的 desc 
-Now | time.Time | 当前时间 |  
-Base | string | 根目录的相对地址 | meta.toml 中 [meta] 的 url，去掉域名部分
-Nav | nav.Group | 导航对象 | meta.toml 中 [[nav]] 数组
-Tree | tree.Node | 网站结构对象 | 
-Comment | third.Comment | 第三方评论对象 | meta.toml 中 [comment] 
-Analytics | third.Analytics | 第三方统计对象 | meta.toml 中 [analytics]
-I18n | *i18n.I18n | 国际化对象 | 可能 nil
-Meta | *base.Meta | Meta 对象 | meta.toml 中 [meta] 完整数据
+Title | string | the title of site | title in [meta] from meta.toml
+Keyword | string | the keyword of site | keyword in [meta] from meta.toml
+Desc | string | the description of site | desc in [meta] from meta.toml
+Now | time.Time | current time when generating the template |  
+Base | string | relative path | url without hostname in [meta] from meta.toml
+Nav | nav.Group | navigation data | array data of [[nav]] from meta.toml
+Tree | tree.Node | tree nodes data | 
+Comment | third.Comment | third-party comment data | [comment] from meta.toml
+Analytics | third.Analytics | third-party analytics | [analytics] from meta.toml 
+I18n | *i18n.I18n | internationlization  | maybe nil
+Meta | *base.Meta | meta data | all data as a map in [meta] from meta.toml
 
-例如主题 `meta.html` 的全局数据渲染：
+For example, use global data in template `meta.html`:
 
 ```html
 <head>
@@ -41,18 +41,18 @@ Meta | *base.Meta | Meta 对象 | meta.toml 中 [meta] 完整数据
 </head>
 ```
 
-## 单页数据
+## Single-page data
 
-单页数据可能会覆盖一些全局数据。
+Single-page data overwrite some values from global data.
 
 #### post.html
 
-参数 | 类型 | 描述 | 默认值
+parameter | type | description | default value
 --- | --- | --- | ---
-Post | *post.Post | 文章数据 | 
-Title | string | 文章页的标题 | 文章标题 - 站点标题
+Post | *post.Post | post data | 
+Title | string | title of the post | post title - site name
 
-主题 `post.html` 中使用页面数据：
+Use post data in template `post.html`:
 
 ```html
 <article class="article">
@@ -78,32 +78,32 @@ Title | string | 文章页的标题 | 文章标题 - 站点标题
 </article>
 ```
 
-`*post.Post` 的详细说明：
+Values in `*post.Post`:
 
-参数 | 类型 | 描述 
+parameter | type | description 
 --- | --- | --- 
-Title | string | 文章的标题
-Desc | string | 文章的介绍
-Tags | []*post.Tag | 文章的标签列表，可能 nil
-Author | *author.Author | 文章的作者，可能 nil
-CreateTime | time.Time | 文章的创建时间
-UpdateTime | time.Time | 文章的修改时间
-Content | []byte | 文章的内容数据
-ContentHTML | template.HTML | 文章内容 HTML 类型
-Brief | []byte | 文章摘要内容数据
-BriefHTML | template.HTML | 文章摘要 HTML 类型
-URL | string | 文章的访问链接，需要和 Base 拼接
-Index | *index.Index | 文章的目录，可能 nil
+Title | string | title of post
+Desc | string | description of post
+Tags | []*post.Tag | tags of post, maybe nil
+Author | *author.Author | author of post, maybe nil
+CreateTime | time.Time | created time of post
+UpdateTime | time.Time | latest updated time of post
+Content | []byte | content bytes
+ContentHTML | template.HTML | content bytes as html string
+Brief | []byte | brief bytes of content
+BriefHTML | template.HTML | brief byts as html string
+URL | string | url of post, join with {{.Base}}
+Index | *index.Index | index of post, maybe nil
 
 #### posts.html
 
-参数 | 类型 | 描述 | 默认值
+parameter | type | description | default value
 --- | --- | --- | ---
-Pager | *pager.Pager | 当前分页数据 | 
-Posts | []*post.Post | 分页列表的文章数组 | 
-Title | string | 页面页码 - 站点标题
+Pager | *pager.Pager | current pager data | 
+Posts | []*post.Post | posts list in current pager | 
+Title | string | pager current number - site name
 
-主题 `posts.html` 中的使用：
+Use in `posts.html`:
 
 ```html
 {{range .Posts}}
@@ -127,7 +127,7 @@ Title | string | 页面页码 - 站点标题
 {{end}}
 ```
 
-分页数据的使用：
+Use {{.Pager}}:
 
 ```html
 <div class="article-pager text-center">
@@ -138,13 +138,13 @@ Title | string | 页面页码 - 站点标题
 
 #### archive.html
 
-参数 | 类型 | 描述 | 默认值
+parameter | type | description | default value
 --- | --- | --- | ---
-Archives | []*archive.Archive | 归档列表 | 
-Hover | string | 归档页面的链接选中状态关键字 | archive 
-Title | string | Archive - 站点标题
+Archives | []*archive.Archive | list of archive posts | 
+Hover | string | hover keyword of archive page | archive 
+Title | string | Archive - site title
 
-主题 `archive.html` 中的使用：
+Sampe of `archive.html`:
 
 ```html
 <div id="archive-list">
@@ -165,13 +165,13 @@ Title | string | Archive - 站点标题
 
 #### page.html
 
-参数 | 类型 | 描述 | 默认值
+parameter | type | description | default value
 --- | --- | --- | ---
-Page | *page.Page | 页面数据 | 
-Title | string | 页面的标题 | 页面标题 - 站点标题
-Hover | string | 当前页面选中状态关键字 | .Page.Hover
+Page | *page.Page | page data | 
+Title | string | title of the page | page title - site title
+Hover | string | hover keyword of this page | .Page.Hover
 
-`page.html` 中使用页面数据渲染的代码，和文章模板页面很类似：
+Sample of `page.html`, familiar to post template:
 
 ```html
 <header class="header">
@@ -192,17 +192,17 @@ Hover | string | 当前页面选中状态关键字 | .Page.Hover
 </div>
 ```
 
-`*page.Page` 的详细说明：
+`*page.Page` fields:
 
-参数 | 类型 | 描述 
+parameter | type | description 
 --- | --- | --- 
-Title | string | 页面的标题
-Desc | string | 页面的介绍
-Author | *author.Author | 页面的作者，可能 nil
-CreateTime | time.Time | 页面的创建时间
-UpdateTime | time.Time | 页面的修改时间
-Content | []byte | 页面的内容数据
-ContentHTML | template.HTML | 页面内容 HTML 类型
-URL | string | 页面的访问链接，需要和 Base 拼接
-Index | *index.Index | 页面的目录，可能 nil
-JSON | *page.JSON | 页面引入的 JSON 数据，可能 nil
+Title | string | title of the page
+Desc | string | description of the page
+Author | *author.Author | author of the page, maybe nil
+CreateTime | time.Time | created time of the page
+UpdateTime | time.Time | modifed time of the page
+Content | []byte | content of the page
+ContentHTML | template.HTML | content of the page as HTML type
+URL | string | visited url, concated with Base url
+Index | *index.Index | index of the page, maybe nil
+JSON | *page.JSON | extra JSON of the page, maybe nil

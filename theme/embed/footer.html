@@ -23,6 +23,14 @@
             }, 200)
         })
         $(".md-content table").addClass("table table-striped table-hover")
+        var slug = $("#i18n-ul").data("slug")
+        if(slug){
+            $(".i18n-link").each(function(i,item){
+                var $item = $(item)
+                var langPrefix = $item.data("lang")
+                $item.attr("href","/"+langPrefix+slug)
+            })
+        }
     })
 
 </script>

@@ -24,8 +24,8 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="lang">
                         <i class="icon-globe"></i>{{.I18nItem.Name}} <span class="caret"></span></a>
-                    <ul class="dropdown-menu" data-slug="{{.Slug}}">{{range .I18nList}}
-                        <li><a href="#">{{.Name}}</a></li>
+                    <ul class="dropdown-menu" data-slug="{{.I18n.TrimLink .Slug}}" id="i18n-ul">{{range .I18nList}}
+                        <li><a href="#" data-lang="{{.Lang}}" class="i18n-link">{{.Name}}</a></li>
                         {{end}}
                     </ul>
                 </li>
